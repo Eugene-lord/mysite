@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Запись в салон</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #fff;
+  text-align: center;
+  padding: 30px;
+}
+
+h1 {
+  color: #ff4da6;
+}
+
+form {
+  max-width: 300px;
+  margin: auto;
+}
+
+input, button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #ff4da6;
+  color: white;
+  border: none;
+  font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Запись в салон</h1>
+
+<form id="form">
+  <input type="text" name="name" placeholder="Имя" required>
+  <input type="tel" name="phone" placeholder="Телефон" required>
+  <input type="date" name="date" required>
+  <input type="time" name="time" required>
+  <button type="submit">Записаться</button>
+</form>
+
+<script>
+const scriptURL = "ВСТАВЬ_СЮДА_URL";
+
+document.getElementById("form").add-EventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.text())
+  .then(data => {
+    alert("Запись отправлена!");
+    document.getElementById("form").reset();
+  })
+  .catch(err => alert("Ошибка: " + err));
+});
+</script>
+
+</body>
+</html>
