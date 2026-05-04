@@ -54,7 +54,7 @@ button {
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbyscyjuXqfpEwH1Cd6v9xcF_zZAEp9K3nZAioTG2gxVMv8yvcU2UKuOi5jsm_LojAmH/exec";
 
-document.getElementById("form").add-EventListener("submit", function(e) {
+document.getElementById("form").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const formData = new FormData(this);
