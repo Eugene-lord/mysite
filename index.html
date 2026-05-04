@@ -62,9 +62,9 @@ document.getElementById("form").addEventListener("submit", function(e) {
   fetch(scriptURL, {
     method: "POST",
     body: formData
+    mode: "no-cors" 
   })
-  .then(res => res.text())
-  .then(data => {
+  .then(() => {
     alert("Запись отправлена!");
     document.getElementById("form").reset();
   })
